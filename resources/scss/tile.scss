@@ -1,0 +1,104 @@
+@import "variables";
+@import "theme";
+
+.game > :not(.pop),
+.complete .value {
+  scale: 1 !important;
+  opacity: 1 !important;
+}
+
+.value {
+  animation: pop 0.1s;
+
+  .front {
+    border-color: $border-primary;
+  }
+}
+
+.tile {
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  position: relative;
+  transform-style: preserve-3d;
+
+  &[data-animation="bounce"] {
+    animation: bounce 1s;
+  }
+}
+
+.back,
+.front {
+  display: grid;
+  place-items: center;
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: transform 0s ease-in-out;
+}
+
+.front {
+  border: 2px solid $border-primary;
+  transform: rotateX(0deg);
+  color: $fg-primary;
+}
+
+.back {
+  background: $color-absent;
+  transform: rotateX(180deg);
+}
+
+.🟩 .back {
+  background: $color-correct;
+}
+
+.🟨 .back {
+  background: $color-present;
+}
+
+.complete .tile:not(.🔳) .front {
+  transition-delay: inherit !important;
+  transition-duration: 0.8s;
+  transform: rotateX(180deg);
+}
+
+.complete .tile:not(.🔳) .back {
+  transition-delay: inherit !important;
+  transition-duration: 0.8s;
+  transform: rotateX(0deg);
+}
+
+@keyframes pop {
+  from {
+    scale: 0.8;
+    opacity: 0;
+  }
+
+  40% {
+    scale: 1.1;
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0%,
+  20% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+  80% {
+    transform: translateY(2px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

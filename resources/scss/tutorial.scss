@@ -1,0 +1,37 @@
+@import "variables";
+
+.tutorial {
+  top: calc(100 / var(--rows) * 1%);
+}
+
+.tutorial {
+  font-size: $fs-small;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: initial;
+  position: absolute;
+  top: $arrow-size + $height;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  //max-width: min($game-width, 95vw);
+  display: flex;
+  align-items: center;
+  padding: $padding;
+  border-radius: 4px;
+  color: $bg-primary;
+  background: $fg-primary;
+  z-index: 1;
+}
+
+.tutorial::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  top: -2 * $arrow-size;
+  border-spacing: $arrow-size;
+  border-style: solid;
+  border-color: transparent;
+  border-bottom-color: $fg-primary;
+}

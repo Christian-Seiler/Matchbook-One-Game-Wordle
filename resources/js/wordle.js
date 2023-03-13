@@ -1,17 +1,25 @@
+/**
+ * @namespace humhub
+ */
 humhub.module('wordle', (module, require, $) => {
 
-  const init = function () {
-    console.log('wordle module activated')
+  let word = 'hallo'
+
+  const init = () => {
   }
 
-  const hello = function () {
-    alert(`${module.text('hello')} - ${module.config.username}`)
+  /**
+   * @param event
+   * @returns void
+   */
+  const type = (event) => {
+    console.log(event)
   }
 
   module.export({
     //uncomment the following line in order to call the init() function also for each pjax call
     //initOnPjaxLoad: true,
     init: init,
-    hello: hello
+    type: type
   })
 })

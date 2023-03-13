@@ -1,0 +1,42 @@
+@import "variables";
+
+.⬛,
+.🟨,
+.🟩 {
+  color: $evaluated-key-color;
+}
+
+.ok {
+  padding: 10px;
+  margin-left: $padding;
+  border-radius: 4px;
+  color: white;
+  background: $color-correct;
+  cursor: pointer;
+}
+
+.button {
+  margin-top: 15px;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+  font-size: $fs-medium;
+  font-weight: bold;
+  padding: 15px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.button:hover {
+  opacity: 0.9;
+}
+
+select {
+  border: solid 1px $border-secondary;
+  padding: 8px;
+  min-width: 85px;
+  border-radius: 4px;
+  cursor: pointer;
+  background: $bg-secondary;
+  color: $fg-primary;
+}

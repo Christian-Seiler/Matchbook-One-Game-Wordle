@@ -4,4 +4,5 @@ nbproject
 vendor/*
 .gitmodules
 /composer.lock
-
+node_modules/
+.sass-cache/

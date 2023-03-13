@@ -1,0 +1,23 @@
+@import "variables";
+@import "theme";
+
+.game {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  margin: auto;
+  position: relative;
+}
+
+.historical {
+  text-align: center;
+  margin-top: 10px;
+  padding: 0 20px;
+  text-transform: uppercase;
+}
+
+.concede {
+  background-color: $red;
+}

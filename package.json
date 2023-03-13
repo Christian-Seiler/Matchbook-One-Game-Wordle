@@ -1,0 +1,17 @@
+{
+  "name": "wordle",
+  "author": {
+    "name": "Christian Seiler",
+    "email": "christian@christianseiler.ch"
+  },
+  "scripts": {
+    "scss": "scss resources/scss/style.scss:resources/css/wordle.css",
+    "scss:watch": "scss --watch resources/scss/style.scss:resources/css/wordle.css"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "sass": "^1.59.2",
+    "@types/jquery": "^3.5.16"
+  }
+}

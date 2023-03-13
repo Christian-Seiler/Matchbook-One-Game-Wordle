@@ -1,34 +1,52 @@
 <?php
-declare(strict_types=1);
+/**
+ * @package Wordle
+ * @author  Christian Seiler <christian@christianseiler.ch>
+ */
 
-namespace humhub\modules\fhnw\games\wordle\assets;
+namespace humhub\modules\games\wordle\assets;
 
-use yii\web\View;
 use yii\web\AssetBundle;
+use yii\web\View;
 
 /**
  * AssetsBundles are used to include assets as javascript or css files
  */
-class Assets extends AssetBundle {
-  /**
-   * @var string defines the path of your module assets
-   */
-  public $sourcePath = '@wordle/resources';
+class Assets extends AssetBundle
+{
 
-  /**
-   * @var array defines where the js files are included into the page, note your custom js files should be included after the core files (which are included in head)
-   */
-  public $jsOptions = ['position' => View::POS_END];
+    public $css = [
+        'css/wordle.css'
+    ];
 
-  /**
-   * @var array change forceCopy to true when testing your js in order to rebuild this assets on every request (otherwise they will be cached)
-   */
-  public $publishOptions = [
-    'forceCopy' => false
-  ];
+    /**
+     * @var array list of JavaScript files that this bundle contains.
+     * @inheritdoc
+     */
+    public $js = [
+        'js/wordle.js'
+    ];
 
-  public $js = [
-    'js/humhub.wordle.js'
-  ];
+    /**
+     * @var array defines where the js files are included into the page, note your custom js files should be included after the core files
+     *      (which are included in head)
+     * @inheritdoc
+     */
+    public $jsOptions = ['position' => View::POS_END];
+
+    /**
+     * @var array $publishOptions change forceCopy to true when testing your js in order to rebuild this assets on every request (otherwise
+     *                            they will be cached)
+     * @inheritdoc
+     */
+    public $publishOptions = [
+        'forceCopy' => true
+    ];
+
+    /**
+     * @var string $sourcePath defines the path of your module assets
+     * @inheritdoc
+     */
+    public $sourcePath = '@wordle/resources';
 
 }
