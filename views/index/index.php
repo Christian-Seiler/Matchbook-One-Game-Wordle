@@ -5,7 +5,8 @@
  */
 
 use fhnw\modules\gamecenter\widgets\Keyboard;
-use humhub\modules\games\wordle\assets\Assets;
+use fhnw\modules\games\wordle\assets\Assets;
+use fhnw\modules\games\wordle\widgets\Tile;
 use humhub\modules\ui\view\components\View;
 
 /** @var View $this */
@@ -16,12 +17,16 @@ Assets::register($this);
 $user = Yii::$app->user;
 $displayName = ($user->isGuest) ? Yii::t('WordleModule.base', 'Guest') : $user->getIdentity()->displayName;
 
-// Add some configuration to our js module
-$this->registerJsConfig('wordle', [
-    'username' => $displayName
-]);
 $cols = 5;
 $rows = 6;
+
+// Add some configuration to our js module
+$this->registerJsConfig('wordle', [
+    'username' => $displayName,
+    'rows'     => $rows,
+    'columns'  => $cols,
+    'word'     => 'hallo'
+]);
 $this->registerCss('wordle');
 ?>
 
@@ -33,11 +38,8 @@ $this->registerCss('wordle');
     <div class="board">
         <?php for ($row = 0; $row < $rows; ++$row) : ?>
             <div class="board-row">
-                <?php for ($tile = 0; $tile < $cols; ++$tile) : ?>
-                    <div class="tile" style="transition-delay: <?= ($tile * 200) ?>ms;">
-                        <div class="front"></div>
-                        <div class="back"></div>
-                    </div>
+                <?php for ($column = 0; $column < $cols; ++$column) : ?>
+                    <?= Tile::empty()->location($row, $column)->cssClass('pop')->style(['transition-delay' => ($column * 200) . ' ms']) ?>
                 <?php endfor; ?>
             </div>
         <?php endfor; ?>

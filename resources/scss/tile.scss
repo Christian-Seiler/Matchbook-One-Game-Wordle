@@ -49,21 +49,21 @@
   transform: rotateX(180deg);
 }
 
-.🟩 .back {
+.tile-green .back {
   background: $color-correct;
 }
 
-.🟨 .back {
+.tile-yellow .back {
   background: $color-present;
 }
 
-.complete .tile:not(.🔳) .front {
+.complete .tile:not(.tile-empty) .front {
   transition-delay: inherit !important;
   transition-duration: 0.8s;
   transform: rotateX(180deg);
 }
 
-.complete .tile:not(.🔳) .back {
+.complete .tile:not(.tile-empty) .back {
   transition-delay: inherit !important;
   transition-duration: 0.8s;
   transform: rotateX(0deg);

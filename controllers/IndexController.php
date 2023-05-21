@@ -4,7 +4,7 @@
  * @author  Christian Seiler <christian@christianseiler.ch>
  */
 
-namespace humhub\modules\games\wordle\controllers;
+namespace fhnw\modules\games\wordle\controllers;
 
 use humhub\components\Controller;
 

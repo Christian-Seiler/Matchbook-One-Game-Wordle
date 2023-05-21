@@ -4,9 +4,9 @@
  * @author  Christian Seiler <christian@christianseiler.ch>
  */
 
-namespace humhub\modules\games\wordle\assets;
+namespace fhnw\modules\games\wordle\assets;
 
-use yii\web\AssetBundle;
+use humhub\components\assets\AssetBundle;
 use yii\web\View;
 
 /**

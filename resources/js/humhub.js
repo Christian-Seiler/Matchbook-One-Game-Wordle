@@ -67,7 +67,7 @@
  * @function module:humhub.module
  * @access public
  * @param {string} id the namespaced id
- * @param {(instance: Module, require: Require, jq: jQuery) => void} moduleFunction
+ * @param {(instance: Module, require: Require, jq: JQuery) => void} moduleFunction
  * @returns {undefined}
  */
 

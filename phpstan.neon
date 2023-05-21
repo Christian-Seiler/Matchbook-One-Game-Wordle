@@ -1,0 +1,24 @@
+includes:
+  - .neon/phpstan-baseline.neon
+parameters:
+  level: 9
+  paths:
+    - assets
+    - components
+    - controllers
+    - events
+    - helpers
+    - messages
+    - models
+    - notifications
+    - permissions
+    - tests
+    - views
+    - widgets
+  scanFiles:
+    - config.php
+    - Events.php
+    - WordleModule.php
+    - translate.php
+  editorUrl:
+    'phpstorm://open?file=%%file%%&line=%%line%%'

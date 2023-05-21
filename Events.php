@@ -5,7 +5,7 @@
  * @author  Christian Seiler <christian@christianseiler.ch>
  */
 
-namespace humhub\modules\games\wordle;
+namespace fhnw\modules\games\wordle;
 
 use Yii;
 use yii\base\Event;

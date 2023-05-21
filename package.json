@@ -5,8 +5,8 @@
     "email": "christian@christianseiler.ch"
   },
   "scripts": {
-    "scss": "scss resources/scss/style.scss:resources/css/wordle.css",
-    "scss:watch": "scss --watch resources/scss/style.scss:resources/css/wordle.css"
+    "scss": "scss resources/scss/style.scss:resources/css/wordle.css resources/scss/tile.scss:resources/css/tile.css",
+    "scss:watch": "scss --watch resources/scss/style.scss:resources/css/wordle.css resources/scss/tile.scss:resources/css/tile.css"
   },
   "dependencies": {
   },
