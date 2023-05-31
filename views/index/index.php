@@ -1,48 +1,53 @@
 <?php
-/**
- * @package Wordle
- * @author  Christian Seiler <christian@christianseiler.ch>
- */
 
-use fhnw\modules\gamecenter\widgets\Keyboard;
-use fhnw\modules\games\wordle\assets\Assets;
-use fhnw\modules\games\wordle\widgets\Tile;
+use fhnw\modules\games\wordle\assets\WordleAssets;
 use humhub\modules\ui\view\components\View;
 
-/** @var View $this */
-
-// Register our module assets, this could also be done within the controller
-Assets::register($this);
-
-$user = Yii::$app->user;
-$displayName = ($user->isGuest) ? Yii::t('WordleModule.base', 'Guest') : $user->getIdentity()->displayName;
-
-$cols = 5;
-$rows = 6;
-
-// Add some configuration to our js module
-$this->registerJsConfig('wordle', [
-    'username' => $displayName,
-    'rows'     => $rows,
-    'columns'  => $cols,
-    'word'     => 'hallo'
-]);
-$this->registerCss('wordle');
+/**
+ * @var View $this
+ */
+WordleAssets::register($this);
 ?>
+<div class="container">
+<h1> Wordle Clone </h1>
 
-<div class="panel-heading">
-    <strong>Wordle</strong>
+<div id='game-board'></div>
+
+<div id='keyboard-cont'>
+<div class='first-row'>
+    <button class='keyboard-button'>q</button>
+    <button class='keyboard-button'>w</button>
+    <button class='keyboard-button'>e</button>
+    <button class='keyboard-button'>r</button>
+    <button class='keyboard-button'>t</button>
+    <button class='keyboard-button'>y</button>
+    <button class='keyboard-button'>u</button>
+    <button class='keyboard-button'>i</button>
+    <button class='keyboard-button'>o</button>
+    <button class='keyboard-button'>p</button>
+</div>
+<div class='second-row'>
+    <button class='keyboard-button'>a</button>
+    <button class='keyboard-button'>s</button>
+    <button class='keyboard-button'>d</button>
+    <button class='keyboard-button'>f</button>
+    <button class='keyboard-button'>g</button>
+    <button class='keyboard-button'>h</button>
+    <button class='keyboard-button'>j</button>
+    <button class='keyboard-button'>k</button>
+    <button class='keyboard-button'>l</button>
+</div>
+<div class='third-row'>
+    <button class='keyboard-button'>Del</button>
+    <button class='keyboard-button'>z</button>
+    <button class='keyboard-button'>x</button>
+    <button class='keyboard-button'>c</button>
+    <button class='keyboard-button'>v</button>
+    <button class='keyboard-button'>b</button>
+    <button class='keyboard-button'>n</button>
+    <button class='keyboard-button'>m</button>
+    <button class='keyboard-button'>Enter</button>
+</div>
 </div>
 
-<div class="panel-body game" style="--rows: <?= $rows ?>; --cols: <?= $cols ?> ;">
-    <div class="board">
-        <?php for ($row = 0; $row < $rows; ++$row) : ?>
-            <div class="board-row">
-                <?php for ($column = 0; $column < $cols; ++$column) : ?>
-                    <?= Tile::empty()->location($row, $column)->cssClass('pop')->style(['transition-delay' => ($column * 200) . ' ms']) ?>
-                <?php endfor; ?>
-            </div>
-        <?php endfor; ?>
-    </div>
-    <?= Keyboard::qwertz()->action('wordle.type') ?>
 </div>
